@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="page-title">{{title}}</div>
+  <div class="content">
+    <mat-form-field appearance="standard">
+       <!-- <mat-label>Filter</mat-label> -->
+      <i class="search-icon">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.41471 12.8287C7.05018 12.8286 7.67748 12.7336 8.27701 12.5503C9.55491 12.1598 11.0515 12.1854 11.9964 13.1303L13.2993 14.4332C13.6124 14.7462 14.12 14.7462 14.4331 14.4332C14.7462 14.1201 14.7462 13.6124 14.4331 13.2994L13.1304 11.9967C12.1854 11.0518 12.1599 9.55514 12.5507 8.27728C12.7341 7.67757 12.8293 7.05006 12.8294 6.41437C12.8294 2.87765 9.95162 0 6.41471 0C2.8778 0 0 2.87765 0 6.41437C0 9.95109 2.8778 12.8287 6.41471 12.8287ZM6.41471 1.60359C9.068 1.60359 11.2257 3.76123 11.2257 6.41437C11.2257 9.06751 9.068 11.2251 6.41471 11.2251C3.76143 11.2251 1.60368 9.06751 1.60368 6.41437C1.60368 3.76123 3.76143 1.60359 6.41471 1.60359Z" fill="#BEC1C9"/>
+        </svg>
+      </i>
+      <input matInput (keyup)="applyFilter($event)" placeholder="search" #input>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Phone number </th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="location">
+        <th mat-header-cell *matHeaderCellDef> Location </th>
+        <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+
+    </table>
+
+  </div>
+</div>

@@ -1,0 +1,102 @@
+/* @import "./assets/fonts/Mulish-Regular.ttf"; */
+
+@font-face {
+    font-family: 'Mulish';
+    src: url(../assets/fonts/Mulish-Regular.ttf);
+  }
+  /* body {
+    font-family: 'Mulish';
+  } */
+
+  .sidenav {
+    position: fixed;
+    width: 242px;
+    height: 1024px;
+    left: 0px;
+    top: -1px;
+    z-index: 2;
+    background: #FFFFFF !important;
+}
+
+.sidenav-top {
+  width: 242px;
+  height: 70px;
+  border-bottom: 1px solid rgba(85, 91, 106, 0.16);
+}
+.wote-logo {
+  position: absolute;
+  left: -0.69%;
+  right: 88.75%;
+  /* top: -1.32%; */
+  bottom: 86.72%;
+  /* border: ; */
+}
+
+.menu-icon {
+  position: absolute;
+  right: 2.857%;
+  top: 2.89%;
+
+  transform: rotate(-180deg);
+}
+
+.sidenav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  padding: 10px;
+}
+.links-container {
+  margin: 20px;
+}
+.sidenav-link-item {
+  display: list-item;
+  list-style: none;
+  /* position: absolute; */
+  width: 100%;
+  /* height: 46px; */
+  padding: 12px;
+  /* left: 26px; */
+  text-decoration: none;
+
+  font-family: 'Mulish';
+  /* font-weight: 600; */
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height */
+  color: #555B6A;
+}
+
+.link-icon {
+  left: 3.26%;
+  right: 95.14%;
+  top: 20.28%;
+  bottom: 77.67%;
+  margin: 5px;
+}
+
+.link-text {
+  /* border: solid 2px red; */
+  padding: auto auto 5px 0px;
+}
+
+.active {
+  background: #e35d64 !important;
+  color:  #FFFFFF !important;
+  border-radius: 3px;
+}
+
+.active .svg-icon {
+  fill: #FFFFFF !important;
+  color: #FFFFFF !important;
+}
+.active svg path{
+  fill: #FFFFFF !important;
+  /* stroke: #FFFFFF; */
+}
+.active #rider-svg path{
+  fill: #FFFFFF !important;
+  stroke: #FFFFFF;
+}
