@@ -1,14 +1,17 @@
 /* @import "./assets/fonts/Mulish-Regular.ttf"; */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
 
 @font-face {
     font-family: 'Mulish';
     src: url(../assets/fonts/Mulish-Regular.ttf);
   }
+
   /* body {
     font-family: 'Mulish';
   } */
 
   .sidenav {
+    /* display: none; */
     position: fixed;
     width: 242px;
     height: 1024px;

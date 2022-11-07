@@ -21,7 +21,8 @@ body {
   top: 100px;
   height: 100%;
   padding: 20px;
-  margin: 12px;
+  margin: 15px;
+  justify-content: space-around;
 }
 
 .page-title {

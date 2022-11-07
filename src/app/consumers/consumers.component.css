@@ -1,5 +1,9 @@
 
-
+.mat-forom-field {
+  /* background: #FFFFFF; */
+  padding: auto;
+  margin: 0px 0 20px 0;
+}
 mat-form-field {
   background: rgba(75, 69, 69, 0.05);
   border-radius: 10px;
@@ -7,6 +11,7 @@ mat-form-field {
   padding: 2px;
   margin-bottom: 10px;
   font-family: 'Mulish';
+  margin-bottom: 30px;
 }
 
 mat-form-field svg{
@@ -20,8 +25,15 @@ mat-form-field input {
   padding: auto;
 }
 
+mat-menu {
+  position: fixed !important;
+
+}
+
 .content {
   background: #FFFFFF;
+  margin: 12px;
+  border-radius: 10px;
 }
 table {
   width: 100%;
@@ -49,4 +61,58 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 
 tr {
   font-weight: 500;
+}
+
+.btn-table-symbol {
+  background: transparent;
+  outline: none;
+  border-width: 0px;
+  cursor: pointer;
+}
+
+.tooltip-box {
+  width: 109px;
+  height: 73px;
+  left: 1185px;
+  top: 360px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 0px 1px rgba(152, 161, 179, 0.1), 0px 15px 35px -5px rgba(17, 24, 38, 0.15), 0px 5px 15px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+}
+
+.menu {
+  position: absolute;
+  width: 96px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 0px 1px rgba(152, 161, 179, 0.1), 0px 15px 35px -5px rgba(17, 24, 38, 0.15), 0px 5px 15px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 6px;
+  gap: 8px;
+  height: 73px;
+  visibility: hidden;
+  margin-left: -40px;
+  margin-top: -30px;
+}
+
+.menu-item{
+  background: transparent;
+  border-width: 0px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  color: #464F60;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+    background: #464F60;
+    color:#FFFFFF;
+    transition: 0.7s;
 }
