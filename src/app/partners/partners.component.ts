@@ -10,6 +10,7 @@ export class PartnersComponent implements OnInit {
 
   constructor() { }
   title = "Partners"
+  public showModal:boolean = true;
 
   displayedColumns: string[] = ['name', 'owner', 'phone', 'email', 'country', 'city', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
@@ -17,6 +18,10 @@ export class PartnersComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  toggleModal() {
+    this.showModal = !this.showModal;
   }
   ngOnInit(): void {
   }

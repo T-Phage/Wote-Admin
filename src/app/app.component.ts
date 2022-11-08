@@ -1,6 +1,7 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { MdbDropdownDirective } from 'mdb-angular-ui-kit/dropdown';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import {Injectable, Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Injectable()
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,11 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class AppComponent {
   title = 'Wote Admin';
+
+  constructor(public router: Router){
+  }
+  // router: Router = this.router;
+
+
+
 }

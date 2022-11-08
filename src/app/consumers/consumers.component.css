@@ -2,20 +2,25 @@
 .mat-forom-field {
   /* background: #FFFFFF; */
   padding: auto;
-  margin: 0px 0 20px 0;
+  /* margin: 0px 0 20px 0; */
 }
 mat-form-field {
   background: rgba(75, 69, 69, 0.05);
   border-radius: 10px;
   width: 322px;
   padding: 2px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   font-family: 'Mulish';
   margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  justify-content: center;
+  align-items: center;
 }
 
-mat-form-field svg{
+mat-form-field i{
   margin: 5px 5px 0px 5px;
+  justify-self: center;
 }
 
 mat-form-field input {

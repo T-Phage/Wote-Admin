@@ -11,25 +11,29 @@
 }
 .card-item {
   display: flex;
-  min-width: 206px;
-  height: 102px;
+  width: 182px;
+  height: 100px;
   background: #FFFFFF;
   border-radius: 8px;
   margin: 12px;
-  overflow-wrap: break-word;
   justify-content: space-between;
+  overflow-wrap: break-word;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 .card-item-label {
-  margin: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+  display: grid;
+  grid-template-rows: auto auto;
+  /* border: solid 1px red; */
+  align-items: center;
+  justify-content: center;
 }
 .card-item-growth {
-  margin: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+  display: grid;
+  grid-template-rows: auto auto;
+  /* border: solid 1px red; */
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 .card-item-label-text {
@@ -60,12 +64,14 @@
 
 .orders-data-table{
   margin: 16px;
-  /* width: 100%; */
+  width: 100%;
+  display: block;
   background: #FFFFFF;
   border-radius: 8px;
   font-family: 'Mulish';
   font-weight: 600;
   font-size: 14px;
+  overflow-x:auto;
 }
 .orders-data-table-caption {
   padding: 15px;
@@ -73,7 +79,7 @@
 table {
   width: 100%;
   border-width: 0px;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
 }
 
 th {
@@ -93,6 +99,7 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
   align-items: flex-start;
   padding: 20px 16px 20px 22px;
 }
+
 
 tr {
   font-weight: 500;

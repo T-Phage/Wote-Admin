@@ -1,8 +1,7 @@
-import { style } from '@angular/animations';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
-import { MdbDropdownDirective } from 'mdb-angular-ui-kit/dropdown';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-consumers',
@@ -11,9 +10,7 @@ import { MdbDropdownDirective } from 'mdb-angular-ui-kit/dropdown';
 })
 export class ConsumersComponent implements OnInit {
 
-  title = "Consumers"
-
-  @ViewChild('dropdown') dropdown!: MdbDropdownDirective;
+  title = "Consumers";
 
   displayedColumns: string[] = ['name', 'phone', 'email', 'location', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
@@ -24,10 +21,17 @@ export class ConsumersComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(ConsumersComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog result: ${result}');
+    })
+  }
 
   zoomIn(e: any) {
-    console.log(document.getElementsByClassName('menu') as HTMLCollection);
     var menuElementsLen = (document.getElementsByClassName('menu') as HTMLCollection).length
     var menuElements = document.getElementsByClassName('menu') as HTMLCollection
 

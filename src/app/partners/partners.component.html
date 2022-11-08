@@ -2,3 +2,57 @@
   <div class="page-title">{{title}}</div>
   <div class="content"></div>
 </div>
+
+<!-- Modls -->
+<div *ngIf="showModal" class="mdl-approve-partner">
+   <div class="mdl-approve-partner-content" style="display: none;">
+    <div class="mdl-approve-partner-content-body">
+      <div class="mdl-approve-partner-content-approve-icon">
+        <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.5 12L10.5 15L16.5 9M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#039855" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg> -->
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="48" height="48" rx="24" fill="#D1FADF"/>
+          <path d="M23.5 28L26.5 31L32.5 25M38 28C38 33.5228 33.5228 38 28 38C22.4772 38 18 33.5228 18 28C18 22.4772 22.4772 18 28 18C33.5228 18 38 22.4772 38 28Z" stroke="#039855" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="4" y="4" width="48" height="48" rx="24" stroke="#ECFDF3" stroke-width="8"/>
+        </svg>
+      </div>
+      <div class="mdl-approve-partner-content-body-text">
+        <h1><b>Approve Partner</b></h1>
+        <p>Partner would be approved, please add the approved restaurant ID</p>
+      </div>
+      <div class="close">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M28 16L16 28M16 16L28 28" stroke="#667085" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+    <div class="mdl-approve-partner-content-footer">
+      <button (click)="toggleModal()" class="btnCancel">Cancel</button>
+      <button class="btnNext">Next</button>
+    </div>
+   </div>
+
+   <div class="mdl-partner-input">
+    <div class="mdl-partner-input-header">
+      <div class="mdl-partner-input-header-note">
+        <span><h1>Approve Partner</h1></span>
+        <p>Please enter ID</p>
+      </div>
+      <div class="btn-close">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M28 16L16 28M16 16L28 28" stroke="#667085" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+    <div class="mdl-partner-input-form">
+      <fieldset>
+        <input type="text">
+      </fieldset>
+      <div class="mdl-partner-input-form-footer">
+        <button class="btn-cancel">Cancel</button>
+        <button class="btn-approve">Approve</button>
+      </div>
+    </div>
+   </div>
+</div>
