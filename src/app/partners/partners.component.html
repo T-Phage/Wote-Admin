@@ -1,16 +1,83 @@
 <div class="container">
   <div class="page-title">{{title}}</div>
-  <div class="content"></div>
+  <div class="content">
+    <div class="mat-forom-field">
+      <mat-form-field appearance="standard">
+        <i class="search-icon">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.41471 12.8287C7.05018 12.8286 7.67748 12.7336 8.27701 12.5503C9.55491 12.1598 11.0515 12.1854 11.9964 13.1303L13.2993 14.4332C13.6124 14.7462 14.12 14.7462 14.4331 14.4332C14.7462 14.1201 14.7462 13.6124 14.4331 13.2994L13.1304 11.9967C12.1854 11.0518 12.1599 9.55514 12.5507 8.27728C12.7341 7.67757 12.8293 7.05006 12.8294 6.41437C12.8294 2.87765 9.95162 0 6.41471 0C2.8778 0 0 2.87765 0 6.41437C0 9.95109 2.8778 12.8287 6.41471 12.8287ZM6.41471 1.60359C9.068 1.60359 11.2257 3.76123 11.2257 6.41437C11.2257 9.06751 9.068 11.2251 6.41471 11.2251C3.76143 11.2251 1.60368 9.06751 1.60368 6.41437C1.60368 3.76123 3.76143 1.60359 6.41471 1.60359Z" fill="#BEC1C9"/>
+          </svg>
+        </i>
+        <input matInput (keyup)="applyFilter($event)" placeholder="search" #input>
+      </mat-form-field>
+      </div>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Business Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="owner">
+        <th mat-header-cell *matHeaderCellDef> Business Owner Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.owner}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Mobile Number </th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="country">
+        <th mat-header-cell *matHeaderCellDef> Country </th>
+        <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef> City </th>
+        <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element" (click)="zoomIn($event.currentTarget)">
+
+          <div class="menu">
+            <button class="menu-item" mat-button (click)="openDeactivateDialog()">Deactivate</button>
+            <button class="menu-item" mat-button routerLink="/consumers/1"><a ></a>Veiw Details</button>
+          </div>
+
+          <button class="btn-table-symbol">
+            <svg width="4" height="16" viewBox="0 0 4 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M2 4C3.1 4 4 3.1 4 2C4 0.9 3.1 0 2 0C0.9 0 0 0.9 0 2C0 3.1 0.9 4 2 4ZM2 6C0.9 6 0 6.9 0 8C0 9.1 0.9 10 2 10C3.1 10 4 9.1 4 8C4 6.9 3.1 6 2 6ZM2 12C0.9 12 0 12.9 0 14C0 15.1 0.9 16 2 16C3.1 16 4 15.1 4 14C4 12.9 3.1 12 2 12Z" fill="#9A9AB0"/>
+            </svg>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+
+    </table>
+  </div>
 </div>
 
-<!-- Modls -->
+<!-- Modals -->
 <div *ngIf="showModal" class="mdl-approve-partner">
-   <div class="mdl-approve-partner-content" style="display: none;">
+  <!-- first modal -->
+   <div class="mdl-approve-partner-content" id="mdl-approve-partner-content">
     <div class="mdl-approve-partner-content-body">
       <div class="mdl-approve-partner-content-approve-icon">
-        <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M7.5 12L10.5 15L16.5 9M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#039855" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg> -->
         <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="4" y="4" width="48" height="48" rx="24" fill="#D1FADF"/>
           <path d="M23.5 28L26.5 31L32.5 25M38 28C38 33.5228 33.5228 38 28 38C22.4772 38 18 33.5228 18 28C18 22.4772 22.4772 18 28 18C33.5228 18 38 22.4772 38 28Z" stroke="#039855" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -21,7 +88,7 @@
         <h1><b>Approve Partner</b></h1>
         <p>Partner would be approved, please add the approved restaurant ID</p>
       </div>
-      <div class="close">
+      <div (click)="toggleModal()"class="close">
         <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M28 16L16 28M16 16L28 28" stroke="#667085" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -29,17 +96,17 @@
     </div>
     <div class="mdl-approve-partner-content-footer">
       <button (click)="toggleModal()" class="btnCancel">Cancel</button>
-      <button class="btnNext">Next</button>
+      <button (click)="toggleBtnNext()" class="btnNext">Next</button>
     </div>
    </div>
-
+<!-- Next Modal under approve partner -->
    <div class="mdl-partner-input">
     <div class="mdl-partner-input-header">
       <div class="mdl-partner-input-header-note">
         <span><h1>Approve Partner</h1></span>
         <p>Please enter ID</p>
       </div>
-      <div class="btn-close">
+      <div (click)="toggleModal()" class="btn-close">
         <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M28 16L16 28M16 16L28 28" stroke="#667085" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -50,9 +117,22 @@
         <input type="text">
       </fieldset>
       <div class="mdl-partner-input-form-footer">
-        <button class="btn-cancel">Cancel</button>
-        <button class="btn-approve">Approve</button>
+        <button (click)="toggleModal()" class="btn-cancel">Cancel</button>
+        <button (click)="toggleBtnApprove()" class="btn-approve">Approve</button>
       </div>
     </div>
    </div>
+
+<!-- Success Modal -->
+   <div class="mdl-patner-confirmed">
+    <i>
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="4" width="48" height="48" rx="24" fill="#D1FADF"/>
+        <path d="M23.5 28L26.5 31L32.5 25M38 28C38 33.5228 33.5228 38 28 38C22.4772 38 18 33.5228 18 28C18 22.4772 22.4772 18 28 18C33.5228 18 38 22.4772 38 28Z" stroke="#039855" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="4" y="4" width="48" height="48" rx="24" stroke="#ECFDF3" stroke-width="8"/>
+      </svg>
+    </i>
+    <h1>Partner Approved</h1>
+   </div>
 </div>
+

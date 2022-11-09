@@ -1,3 +1,4 @@
+
 .mat-forom-field {
   /* background: #FFFFFF; */
   padding: auto;
@@ -42,11 +43,20 @@ table {
   width: 100%;
   border-width: 0px;
   background: #FFFFFF;
+  font-family: 'Mulish';
+  font-style: normal;
+  color: #11142D;
 }
 
 th {
   background: #F7F7FC;
-  border-width: 0px ;
+  border-width: 0px;
+  font-weight: 700;
+  font-size: 14px;
+}
+td {
+  font-weight: 200;
+  font-size: 16px;
 }
 
 th.mat-header-cell, td.mat-cell, td.mat-footer-cell {

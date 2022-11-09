@@ -11,7 +11,7 @@
 }
 .card-item {
   display: flex;
-  width: 182px;
+  width: 185px;
   height: 100px;
   background: #FFFFFF;
   border-radius: 8px;
@@ -31,7 +31,6 @@
 .card-item-growth {
   display: grid;
   grid-template-rows: auto auto;
-  /* border: solid 1px red; */
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -79,7 +78,7 @@
 table {
   width: 100%;
   border-width: 0px;
-  /* overflow-x: scroll; */
+  /* overflow-x: auto; */
 }
 
 th {

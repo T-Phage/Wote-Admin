@@ -23,14 +23,20 @@ export class ConsumersComponent implements OnInit {
 
   constructor(public dialog: MatDialog) { }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(ConsumersComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('Dialog result: ${result}');
-    })
+  openDeactivateDialog() {
+    console.log('clicked');
   }
 
+   // Close opened menu when any part of consumer component is clicked
+   closeOnScreenClicked() {
+    // var menuElementsLen = (document.getElementsByClassName('menu') as HTMLCollection).length
+    var menuElements = document.querySelector('.viewed') as HTMLDivElement
+    menuElements.classList.remove('viewed')
+    menuElements.style.visibility = 'hidden';
+    console.log(menuElements);
+  }
+
+  //Menu Display
   zoomIn(e: any) {
     var menuElementsLen = (document.getElementsByClassName('menu') as HTMLCollection).length
     var menuElements = document.getElementsByClassName('menu') as HTMLCollection
@@ -38,11 +44,14 @@ export class ConsumersComponent implements OnInit {
     for(var i=0;i<menuElementsLen;i++){
       var menuElementItem = menuElements[i] as HTMLElement
       menuElementItem.style.visibility = 'hidden'
+      menuElementItem.classList.remove('viewed')
     }
 
     var ele = ((e as HTMLElement).children[0]) as HTMLElement
     ele.style.visibility = 'visible';
+    ele.classList.add('viewed')
   }
+
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;

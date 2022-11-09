@@ -102,21 +102,11 @@
   cursor: pointer;
 }
 
-.animate {
-  animation-name: nextModal;
-  animation-duration: 4s;
-}
-
-@keyframes nextModal {
-  from {background-color: red;}
-  to {background-color: yellow;}
-}
-
 /* Partner input modal */
 .mdl-partner-input {
   width: 400px;
   height: 240px;
-  display: flex;
+  display: none;
   flex-direction: column;
   background: #FFFFFF;
   box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.1), 0px 8px 8px -4px rgba(16, 24, 40, 0.04);
@@ -213,8 +203,9 @@ fieldset input {
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
-}
 
+  cursor: pointer;
+}
 
 .mdl-partner-input-form-footer .btn-cancel {
   display: flex;
@@ -236,17 +227,43 @@ fieldset input {
   font-size: 16px;
   line-height: 24px;
   color: #344054;
+
+  cursor: pointer;
 }
 
-/* animation: zoom-in-zoom-out 2s ease-out infinite; */
-@keyframes zoom-in-zoom-out {
-  0% {
-    transform: scale(1, 1);
-  }
-  50% {
-    transform: scale(1.5, 1.5);
-  }
-  100% {
-    transform: scale(1, 1);
-  }
+/* partner confirmed */
+.mdl-patner-confirmed {
+  /* width: 298px;
+  height: 262px; */
+  width: 288px;
+  height: 248px;
+  background: #FFFFFF;
+  border-radius: 12px;
+
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+.mdl-patner-confirmed i {
+  display: grid;
+  grid-template-rows: auto;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: -41px;
+}
+
+.mdl-patner-confirmed h1 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  color: #101828;
+  margin-top: -66px;
+}
+
+.close, .btn-close{
+  cursor: pointer;
 }

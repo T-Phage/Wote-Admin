@@ -1,13 +1,4 @@
 
-    <!-- <a class="card" href="#" routerLink = "/auth" routerLinkActive="active">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
-      <span>Auth</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-    <a class="card" href="#" routerLink = "/auth/login" routerLinkActive= "active">
-      Login
-    </a> -->
-
   <div class="sidenav" *ngIf="!router.url.includes('auth')">
     <div class="sidenav-top">
       <div class="wote-logo">
@@ -123,13 +114,13 @@
       z-index: 3;
       display: flex;
       justify-content: space-between;
+      padding: 20px;
     }
     .search {
-      padding: 50px;
+      padding: 30px;
+      padding-left: 21px;
       width: 320px;
       height: 36px;
-      left: 317px;
-      /* border: solid 1px ; */
     }
     .search-items {
       background: rgba(75, 69, 69, 0.05);
@@ -142,8 +133,6 @@
     .search-icon {
       align-self: center;
       justify-self: center;
-      /* margin: 10px; */
-      /* padding: 20px; */
     }
     .search-input input{
       border: 0px;
@@ -155,16 +144,12 @@
     .control-menu {
       list-style: none;
       display: flex;
-      padding-left: 10px;
+      padding-top: 23px;
       padding-right: 18px;
       justify-content: space-between;
       align-items: center;
-      width: 100px;
+      width: 107px;
     }
-
-    /* .control-menu a {
-      display: block;
-    } */
 
     .img-slot {
       display: flex;

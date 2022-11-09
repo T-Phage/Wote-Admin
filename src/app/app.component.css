@@ -23,8 +23,9 @@
 
 .sidenav-top {
   width: 242px;
-  height: 70px;
+  height: 75px;
   border-bottom: 1px solid rgba(85, 91, 106, 0.16);
+  /* padding-bottom: 12px; */
 }
 .wote-logo {
   position: absolute;

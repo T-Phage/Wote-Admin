@@ -4,13 +4,15 @@ import { MatTableDataSource } from '@angular/material/table';
 @Component({
   selector: 'app-partners',
   templateUrl: './partners.component.html',
-  styleUrls: ['./partners.component.css']
+  styleUrls: [
+    './partners.component.css',
+    '../../assets/css/tables.css',
+  ]
 })
 export class PartnersComponent implements OnInit {
 
-  constructor() { }
   title = "Partners"
-  public showModal:boolean = true;
+  public showModal:boolean = false;
 
   displayedColumns: string[] = ['name', 'owner', 'phone', 'email', 'country', 'city', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
@@ -23,6 +25,44 @@ export class PartnersComponent implements OnInit {
   toggleModal() {
     this.showModal = !this.showModal;
   }
+
+  toggleBtnNext() {
+    var mdlApprovePartnerContent = document.querySelector('div[id="mdl-approve-partner-content"]') as HTMLDivElement;
+    mdlApprovePartnerContent.style.display = 'none';
+
+    var mdlPartneInput = document.querySelector('.mdl-partner-input') as HTMLDivElement;
+    mdlPartneInput.style.display = 'flex';
+  }
+
+  toggleBtnApprove() {
+    var mdlPartneInput = document.querySelector('.mdl-partner-input') as HTMLDivElement;
+    mdlPartneInput.style.display = 'none';
+
+    var mdlPatnerConfirmed = document.querySelector('.mdl-patner-confirmed') as HTMLDivElement;
+    mdlPatnerConfirmed.style.display = 'flex';
+  }
+
+  openDeactivateDialog() {
+    console.log('clicked');
+  }
+
+  //Menu Display
+  zoomIn(e: any) {
+    var menuElementsLen = (document.getElementsByClassName('menu') as HTMLCollection).length
+    var menuElements = document.getElementsByClassName('menu') as HTMLCollection
+
+    for(var i=0;i<menuElementsLen;i++){
+      var menuElementItem = menuElements[i] as HTMLElement
+      menuElementItem.style.visibility = 'hidden'
+      menuElementItem.classList.remove('viewed')
+    }
+
+    var ele = ((e as HTMLElement).children[0]) as HTMLElement
+    ele.style.visibility = 'visible';
+    ele.classList.add('viewed')
+  }
+
+  constructor() { }
   ngOnInit(): void {
   }
 
