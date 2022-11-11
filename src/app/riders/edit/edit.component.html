@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="page-title">{{title}}</div>
+  <div class="content">
+    <div class="content-edit">
+      <div class="image-column">
+        <div class="profile-image-div">
+          <img width="180px" [src]="imageSrc || '../../../assets/images/profile.jpeg'" alt="">
+        </div>
+        <div class="btn-upload">
+          <label for="upload-image">Click to upload image</label>
+          <input (change)="previewImage($event)" type="file" accept="image/png, image/gif, image/jpeg" id="upload-image">
+        </div>
+      </div>
+      <div class="edit-form-column mulish-text">
+
+        <div class="edit-form-input-group">
+          <div class="form-input-div">
+            <input type="text" placeholder="First Name">
+          </div>
+
+          <div class="form-input-div">
+            <input type="text" placeholder="Last Name">
+          </div>
+        </div>
+
+        <div class="edit-form-input-group">
+          <div class="form-input-div">
+            <input type="text" placeholder="Phone Number">
+          </div>
+
+          <div class="form-input-div">
+            <input type="text" placeholder="Email">
+          </div>
+        </div>
+
+        <div class="edit-form-input-group">
+          <div class="form-input-div">
+            <input type="text" placeholder="Bike ID">
+          </div>
+
+          <div class="form-input-div">
+            <input type="text" placeholder="Rider ID">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-btn">
+      <!-- <div></div> -->
+      <button class="btn-save">Save</button>
+    </div>
+
+  </div>
+</div>

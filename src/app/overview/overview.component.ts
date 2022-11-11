@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 
@@ -7,7 +7,7 @@ import {MatTableDataSource} from '@angular/material/table';
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.css'],
 })
-export class OverviewComponent implements AfterViewInit {
+export class OverviewComponent implements OnInit {
 
   displayedColumns: string[] = ['orderId', 'productID', 'restaurantName', 'customerName', 'location', 'orderStatus', 'deliveredTime', 'deliveryPrice', 'foodAmount'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
@@ -20,8 +20,9 @@ export class OverviewComponent implements AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  // ngOnInit(): void {
-  // }
+  ngOnInit(): void {
+    setTimeout(() => this.dataSource.paginator = this.paginator);
+  }
 }
 
 export interface PeriodicElement {

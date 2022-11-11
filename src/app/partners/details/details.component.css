@@ -29,9 +29,9 @@
   align-content: center;
 
   border-bottom: solid 1px #D9D9D9;
-
   padding: 14px;
 }
+
 .mulish-text {
   font-family: 'Mulish';
   font-style: normal;
@@ -42,4 +42,14 @@
   display: flex;
   /* align-items: center; */
   color: #6B7280;
+}
+
+.profile-image-div {
+  width: 200px;
+  height: 200px;
+  padding: 0px;
+  /* border: solid 1px red; */
+}
+.profile-image-div img {
+  border-radius: 50%;
 }

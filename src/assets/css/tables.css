@@ -11,6 +11,9 @@ mat-form-field {
   padding: 2px;
   margin: 20px;
   font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
   display: grid;
   grid-template-columns: 1fr 10fr;
   justify-content: center;
@@ -39,6 +42,7 @@ mat-menu {
   /* margin: 12px; */
   border-radius: 10px;
 }
+
 table {
   width: 100%;
   border-width: 0px;
@@ -103,7 +107,8 @@ tr {
   align-items: center;
   padding: 8px 6px;
   gap: 8px;
-  height: 73px;
+  /* padding: 5px; */
+  /* height: 73px; */
   visibility: hidden;
   margin-left: -40px;
   margin-top: -30px;

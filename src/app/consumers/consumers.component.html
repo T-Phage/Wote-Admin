@@ -3,6 +3,9 @@
   <div class="content">
 
     <div class="mat-forom-field">
+      <table id="exmple">
+
+      </table>
       <mat-form-field appearance="standard">
         <i class="search-icon">
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,7 +44,7 @@
 
           <div class="menu">
             <button class="menu-item" mat-button (click)="openDeactivateDialog()">Deactivate</button>
-            <button class="menu-item" mat-button routerLink="/consumers/1"><a ></a>Veiw Details</button>
+            <button class="menu-item" mat-button routerLink="/consumers/1">Veiw Details</button>
           </div>
 
           <button class="btn-table-symbol">
@@ -59,7 +62,36 @@
         <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
       </tr>
 
+
     </table>
+    <mat-paginator [pageSizeOptions]="[10]" aria-label="Consumers on a page"></mat-paginator>
   </div>
 </div>
+
+<div *ngIf="showDeactivateModal" class="mdl-approve-partner">
+  <div class="mdl-approve-partner-content" id="mdl-approve-partner-content">
+    <div class="mdl-approve-partner-content-body">
+      <div class="mdl-approve-partner-content-approve-icon" style="cursor: pointer;">
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="48" height="48" rx="24" fill="#FEE4E2"/>
+          <path d="M32 22V21.2C32 20.0799 32 19.5198 31.782 19.092C31.5903 18.7157 31.2843 18.4097 30.908 18.218C30.4802 18 29.9201 18 28.8 18H27.2C26.0799 18 25.5198 18 25.092 18.218C24.7157 18.4097 24.4097 18.7157 24.218 19.092C24 19.5198 24 20.0799 24 21.2V22M26 27.5V32.5M30 27.5V32.5M19 22H37M35 22V33.2C35 34.8802 35 35.7202 34.673 36.362C34.3854 36.9265 33.9265 37.3854 33.362 37.673C32.7202 38 31.8802 38 30.2 38H25.8C24.1198 38 23.2798 38 22.638 37.673C22.0735 37.3854 21.6146 36.9265 21.327 36.362C21 35.7202 21 34.8802 21 33.2V22" stroke="#D92D20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="4" y="4" width="48" height="48" rx="24" stroke="#FEF3F2" stroke-width="8"/>
+        </svg>
+      </div>
+      <div class="mdl-approve-partner-content-body-text">
+        <h1><b>Deactivate Consumer</b></h1>
+        <p>Are you sure you want to deactivate <b>Kofi</b></p>
+      </div>
+      <div (click)="toggleModal()"class="close">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M28 16L16 28M16 16L28 28" stroke="#667085" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+    <div class="mdl-approve-partner-content-footer">
+      <button (click)="toggleModal()" class="btnCancel">Cancel</button>
+      <button class="btnDeactivate">Deactivate</button>
+  </div>
+</div>
+
 <router-outlet></router-outlet>

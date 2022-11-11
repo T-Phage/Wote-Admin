@@ -82,3 +82,10 @@
 
   margin-top: 15px;
 }
+
+.orange-bike-png-bg {
+  position: absolute;
+  z-index: 2;
+  left: 0px;
+  display: none;
+}

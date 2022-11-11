@@ -46,3 +46,12 @@
   /* align-items: center; */
   color: #6B7280;
 }
+.profile-image-div {
+  width: 200px;
+  height: 200px;
+  padding: 0px;
+  /* border: solid 1px red; */
+}
+.profile-image-div img {
+  border-radius: 50%;
+}

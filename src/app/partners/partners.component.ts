@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import {MatPaginator} from '@angular/material/paginator';
+import { PARTNERS_ELEMENT } from '../../assets/datatables/partners.datatables';
 
 @Component({
   selector: 'app-partners',
@@ -12,18 +14,23 @@ import { MatTableDataSource } from '@angular/material/table';
 export class PartnersComponent implements OnInit {
 
   title = "Partners"
-  public showModal:boolean = false;
+  public showApproveModal:boolean = false;
+  public showDeactivateModal:boolean = false;
 
   displayedColumns: string[] = ['name', 'owner', 'phone', 'email', 'country', 'city', 'symbol'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  dataSource = new MatTableDataSource(PARTNERS_ELEMENT);
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  toggleModal() {
-    this.showModal = !this.showModal;
+  toggleApproveModal() {
+    this.showApproveModal = !this.showApproveModal;
+  }
+  toggleDeactivateModal(){
+    this.showDeactivateModal = !this.showDeactivateModal;
   }
 
   toggleBtnNext() {
@@ -40,10 +47,11 @@ export class PartnersComponent implements OnInit {
 
     var mdlPatnerConfirmed = document.querySelector('.mdl-patner-confirmed') as HTMLDivElement;
     mdlPatnerConfirmed.style.display = 'flex';
-  }
 
-  openDeactivateDialog() {
-    console.log('clicked');
+    setTimeout(() => {
+      // console.log("Delayed for 3 second.");
+      this.toggleApproveModal()
+    }, 3000)
   }
 
   //Menu Display
@@ -64,30 +72,8 @@ export class PartnersComponent implements OnInit {
 
   constructor() { }
   ngOnInit(): void {
+    setTimeout(() => this.dataSource.paginator = this.paginator);
   }
 
 }
 
-
-export interface PeriodicElement {
-  name: string;
-  owner: string;
-  phone: string;
-  email: string;
-  country: string;
-  city: string;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-];
