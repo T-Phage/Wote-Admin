@@ -27,6 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #FFFFFF;
   /* position: absolute; */
 }
 
@@ -74,6 +75,7 @@
 
 .btn-login {
   background: #FF0000 !important;
+  background-image: url('../../../assets/images/Orange-Bike-Without-Screen-Front.jpg-removebg-preview.png');
   color: #FFFFFF;
 
   box-shadow: 0px 4px 12px rgba(55, 81, 255, 0.24);
@@ -85,7 +87,18 @@
 
 .orange-bike-png-bg {
   position: absolute;
-  z-index: 2;
-  left: 0px;
-  display: none;
+  z-index: 1;
+  left: -23%;
+  bottom: -5%;
+  display: block;
+}
+
+.orange-bike-png-bg img{
+  opacity: calc(20%);
+}
+
+@media only screen and (max-width: 1200px) {
+  .orange-bike-png-bg {
+    display: none;
+  }
 }

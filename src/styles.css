@@ -203,3 +203,13 @@ tr {
   cursor: pointer;
   border: 1px solid #D92D20;
 }
+
+.tbl-pagination {
+  font-family: 'Mulish';
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.cdk-overlay-container {
+  display:none !important;
+}

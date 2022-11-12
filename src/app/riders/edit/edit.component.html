@@ -1,6 +1,6 @@
 <div class="container">
   <div class="page-title">{{title}}</div>
-  <div class="content">
+  <form class="content">
     <div class="content-edit">
       <div class="image-column">
         <div class="profile-image-div">
@@ -15,39 +15,38 @@
 
         <div class="edit-form-input-group">
           <div class="form-input-div">
-            <input type="text" placeholder="First Name">
+            <input type="text" placeholder="First Name" required>
           </div>
 
           <div class="form-input-div">
-            <input type="text" placeholder="Last Name">
-          </div>
-        </div>
-
-        <div class="edit-form-input-group">
-          <div class="form-input-div">
-            <input type="text" placeholder="Phone Number">
-          </div>
-
-          <div class="form-input-div">
-            <input type="text" placeholder="Email">
+            <input type="text" placeholder="Last Name" required>
           </div>
         </div>
 
         <div class="edit-form-input-group">
           <div class="form-input-div">
-            <input type="text" placeholder="Bike ID">
+            <input type="number" placeholder="Phone Number" required>
           </div>
 
           <div class="form-input-div">
-            <input type="text" placeholder="Rider ID">
+            <input type="text" placeholder="Email" required>
+          </div>
+        </div>
+
+        <div class="edit-form-input-group">
+          <div class="form-input-div">
+            <input type="text" placeholder="Bike ID" required>
+          </div>
+
+          <div class="form-input-div">
+            <input type="text" placeholder="Rider ID" required>
           </div>
         </div>
       </div>
     </div>
     <div class="footer-btn">
-      <!-- <div></div> -->
-      <button class="btn-save">Save</button>
+      <button type="submit" class="btn-save">Save</button>
     </div>
 
-  </div>
+  </form>
 </div>
