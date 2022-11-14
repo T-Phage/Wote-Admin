@@ -1,5 +1,6 @@
 <div class="container">
     <div class="content">
+      <!-- Cards  -->
         <div class="card-items">
           <!-- Riders card -->
           <div class="card-item">
@@ -109,29 +110,26 @@
           </div>
         </div>
 
+        <!-- Oders Table -->
         <div class="orders-data-table">
           <div class="orders-data-table-caption">Recent Orders</div>
           <div class="mat-elevation-z8">
             <table mat-table [dataSource]="dataSource">
-
 
               <ng-container matColumnDef="orderId">
                 <th mat-header-cell *matHeaderCellDef> Order ID </th>
                 <td mat-cell *matCellDef="let element"> {{element.orderId}} </td>
               </ng-container>
 
-
               <ng-container matColumnDef="productID">
                 <th mat-header-cell *matHeaderCellDef> Product ID </th>
                 <td mat-cell *matCellDef="let element"> {{element.productID}} </td>
               </ng-container>
 
-
               <ng-container matColumnDef="restaurantName">
                 <th mat-header-cell *matHeaderCellDef> Restaurant </th>
                 <td mat-cell *matCellDef="let element"> {{element.restaurantName}} </td>
               </ng-container>
-
 
               <ng-container matColumnDef="customerName">
                 <th mat-header-cell *matHeaderCellDef> Customer Name </th>
@@ -167,7 +165,85 @@
               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
 
-            <mat-paginator class="tbl-pagination" [pageSizeOptions]="[5]" aria-label="No. of Trending Orders on a page"></mat-paginator>
+          </div>
+
+          <mat-paginator class="tbl-pagination" [pageSizeOptions]="[5]" aria-label="No. of Trending Orders on a page"></mat-paginator>
+
+        </div>
+
+        <div class="trending-orders">
+          <div class="txt-head">
+            <h2 class="trending-text">Trending Orders</h2>
+          </div>
+          <div class="trending-orders-items">
+            <div class="trending-orders-item">
+              <h2 class="trending-text">Wonder wings</h2>
+              <div class="trending-progress-outer">
+                <div class="trending-progress-inner bg-order-success-progress" style="width: 90%;"></div>
+              </div>
+            </div>
+            <div class="trending-orders-item">
+              <h2 class="trending-text">Piza Pine</h2>
+              <div class="trending-progress-outer">
+                <div class="trending-progress-inner bg-order-success-progress" style="width: 85%;"></div>
+              </div>
+            </div>
+            <div class="trending-orders-item">
+              <h2 class="trending-text">Full Chicken</h2>
+              <div class="trending-progress-outer">
+                <div class="trending-progress-inner bg-order-success-progress" style="width: 80%;"></div>
+              </div>
+            </div>
+            <div class="trending-orders-item">
+              <h2 class="trending-text">Fried Chickekn</h2>
+              <div class="trending-progress-outer">
+                <div class="trending-progress-inner bg-order-success-progress" style="width: 75%;"></div>
+              </div>
+            </div>
+            <div class="trending-orders-item">
+              <h2 class="trending-text">Fried Rice</h2>
+              <div class="trending-progress-outer">
+                <div class="trending-progress-inner bg-order-success-progress" style="width: 60%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="trending-orders-note-2">
+          <div class="txt-head">
+            <h2 class="trending-text">Trending Orders</h2>
+          </div>
+
+          <div class="trending-orders-note-2-items">
+            <div class="trending-orders-note-2-item">
+              <h2 class="trending-text">Total Orders</h2>
+              <div class="trending-progress-outer">
+                <div class="trending-progress-inner bg-order-success-progress" style="width: 80%;"></div>
+              </div>
+              <h2 class="trending-progress-percentage trending-text">80%</h2>
+            </div>
+            <div class="trending-orders-note-2-item">
+              <h2 class="trending-text">New Orders</h2>
+              <div class="trending-progress-outer">
+                <div class="trending-progress-inner bg-order-success-progress" style="width: 90%;"></div>
+              </div>
+              <h2 class="trending-progress-percentage trending-text">90%</h2>
+            </div>
+            <div class="trending-orders-note-2-item">
+              <h2 class="trending-text">Canceled Partner Orders</h2>
+              <div class="trending-progress-outer">
+                <div class="trending-progress-inner bg-order-bounced-progress" style="width: 60%;"></div>
+              </div>
+              <h2 class="trending-progress-percentage trending-text">60%</h2>
+            </div>
+            <div class="trending-orders-note-2-item">
+              <h2 class="trending-text">Declined Rider Order</h2>
+              <div class="trending-progress-outer">
+                <div class="trending-progress-inner bg-order-bounced-progress" style="width: 13%;"></div>
+              </div>
+              <h2 class="trending-progress-percentage trending-text">13%</h2>
+            </div>
+          </div>
 
         </div>
     </div>

@@ -41,7 +41,10 @@ body {
   margin-left: 7px;
 }
 
-
+/* Scroll on table overflow */
+.mat-elevation-z8{
+  overflow-x:auto;
+}
 table {
   width: 100%;
   border-width: 0px;
@@ -212,4 +215,32 @@ tr {
 
 .cdk-overlay-container {
   display:none !important;
+}
+
+/* ==============================================================================
+        Media query for mobile view
+============================================================================= */
+@media only screen and (max-width:600px){
+  .sidenav {
+    display: none;
+  }
+  .top-nav {
+    /* position: relative; */
+    left: 0px !important;
+    border: solid 1px blue;
+    padding: 18px;
+    width: 100%;
+  }
+  .control-menu {
+    width: none;
+    justify-content: space-evenly;
+  }
+  .container {
+    margin-left: 0px;
+    border: solid 1px red;
+    width: 100%;
+  }
+  .card-item {
+    width: 100px;
+  }
 }

@@ -43,8 +43,12 @@ mat-menu {
   border-radius: 10px;
 }
 
+.mat-elevation-z8{
+  overflow-x:auto;
+}
+
 table {
-  width: 100%;
+  /* width: 100%; */
   border-width: 0px;
   background: #FFFFFF;
   font-family: 'Mulish';

@@ -11,6 +11,22 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'Wote Admin';
 
+  showProfileMenu = false;
+
+  showProfileMenuFunc(){
+    this.showProfileMenu = !this.showProfileMenu
+  }
+
+  toggleSideMenu(){
+    var sidenav = document.querySelector('.sidenav') as HTMLDivElement
+    console.log(sidenav);
+
+    // sidenav.style.maxWidth = '100px';
+
+
+    // sidenavLinkText.style.display = 'none';
+  }
+
   constructor(public router: Router){
   }
   // router: Router = this.router;

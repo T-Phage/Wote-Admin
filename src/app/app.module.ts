@@ -14,7 +14,6 @@ import { PartnersComponent } from './partners/partners.component';
 import { RidersComponent } from './riders/riders.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { MatTableModule} from '@angular/material/table';
-import { MatDialogModule } from '@angular/material/dialog';
 import { DetailsComponent as ParterDetails } from './partners/details/details.component';
 import { DetailsComponent as ConsumerDetails } from './consumers/details/details.component';
 import { DetailsComponent as RiderDetails } from './riders/details/details.component';
@@ -39,7 +38,6 @@ import { EditComponent as RiderEditComponent } from './riders/edit/edit.componen
     AuthModule,
     MatTableModule,
     MatPaginatorModule,
-    MatDialogModule,
     BrowserAnimationsModule,
   ],
   providers: [],
