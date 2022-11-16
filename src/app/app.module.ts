@@ -1,11 +1,18 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
+
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
+
+// import * as CanvasJSAngularChart from '../assets/Charts/canvasjs.angular.component';
+// import * as CanvasJSAngularChart from '../assets/Charts/stock/canvasjs.angular.component';
+// var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
+
 
 import { AppComponent } from './app.component';
 import { OverviewComponent } from './overview/overview.component';
@@ -39,6 +46,7 @@ import { EditComponent as RiderEditComponent } from './riders/edit/edit.componen
     MatTableModule,
     MatPaginatorModule,
     BrowserAnimationsModule,
+    NgxSkeletonLoaderModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

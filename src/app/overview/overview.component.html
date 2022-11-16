@@ -171,80 +171,74 @@
 
         </div>
 
-        <div class="trending-orders">
-          <div class="txt-head">
-            <h2 class="trending-text">Trending Orders</h2>
-          </div>
-          <div class="trending-orders-items">
-            <div class="trending-orders-item">
-              <h2 class="trending-text">Wonder wings</h2>
-              <div class="trending-progress-outer">
-                <div class="trending-progress-inner bg-order-success-progress" style="width: 90%;"></div>
+        <div class="order-chart">
+          <div class="chart">
+            <div class="chart-label">
+              <h2 class="chart-caption">Order Chart</h2>
+              <div class="chart-filter">
+                <button class="chart-label-button">Daily</button>
+                <button class="chart-label-button active-chart">Weekly</button>
+                <button class="chart-label-button">Monthly</button>
               </div>
             </div>
-            <div class="trending-orders-item">
-              <h2 class="trending-text">Piza Pine</h2>
-              <div class="trending-progress-outer">
-                <div class="trending-progress-inner bg-order-success-progress" style="width: 85%;"></div>
-              </div>
-            </div>
-            <div class="trending-orders-item">
-              <h2 class="trending-text">Full Chicken</h2>
-              <div class="trending-progress-outer">
-                <div class="trending-progress-inner bg-order-success-progress" style="width: 80%;"></div>
-              </div>
-            </div>
-            <div class="trending-orders-item">
-              <h2 class="trending-text">Fried Chickekn</h2>
-              <div class="trending-progress-outer">
-                <div class="trending-progress-inner bg-order-success-progress" style="width: 75%;"></div>
-              </div>
-            </div>
-            <div class="trending-orders-item">
-              <h2 class="trending-text">Fried Rice</h2>
-              <div class="trending-progress-outer">
-                <div class="trending-progress-inner bg-order-success-progress" style="width: 60%;"></div>
-              </div>
+            <div class="chart-diagram">
+                <canvas id="myChart"></canvas>
+              <!-- <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart> -->
             </div>
           </div>
-        </div>
+          <div class="key-performance">
+            <div class="key">
+              <div class="key-title">
+                <h2>All Category</h2>
+              </div>
 
-        <div class="trending-orders-note-2">
-          <div class="txt-head">
-            <h2 class="trending-text">Trending Orders</h2>
-          </div>
+              <div class="key-body">
+                <div class="key-item">
+                  <span class="key-color" style="--code: #FFBDC1"></span>
+                  <span class="key-text">Total orders</span>
+                </div>
 
-          <div class="trending-orders-note-2-items">
-            <div class="trending-orders-note-2-item">
-              <h2 class="trending-text">Total Orders</h2>
-              <div class="trending-progress-outer">
-                <div class="trending-progress-inner bg-order-success-progress" style="width: 80%;"></div>
+                <div class="key-item">
+                  <span class="key-color" style="--code: #FF000D"></span>
+                  <span class="key-text">New Orders</span>
+                </div>
+
+                <div class="key-item">
+                  <span class="key-color" style="--code: #FC555E"></span>
+                  <span class="key-text">Declined orders(Restaurant)</span>
+                </div>
+
+                <div class="key-item">
+                  <span class="key-color" style="--code: #FFEEEF"></span>
+                  <span class="key-text">Declined orders(Riders)</span>
+                </div>
               </div>
-              <h2 class="trending-progress-percentage trending-text">80%</h2>
+
             </div>
-            <div class="trending-orders-note-2-item">
-              <h2 class="trending-text">New Orders</h2>
-              <div class="trending-progress-outer">
-                <div class="trending-progress-inner bg-order-success-progress" style="width: 90%;"></div>
+            <div class="performance">
+              <div class="performance-title">
+                <span class="performance-title-head">Performance</span>
+                <span class="performance-title-value">3,056.00</span>
               </div>
-              <h2 class="trending-progress-percentage trending-text">90%</h2>
-            </div>
-            <div class="trending-orders-note-2-item">
-              <h2 class="trending-text">Canceled Partner Orders</h2>
-              <div class="trending-progress-outer">
-                <div class="trending-progress-inner bg-order-bounced-progress" style="width: 60%;"></div>
+
+              <div class="performance-progress">
+                <div class="progress" data-progress="75" style="--progress: 270deg;"></div>
               </div>
-              <h2 class="trending-progress-percentage trending-text">60%</h2>
-            </div>
-            <div class="trending-orders-note-2-item">
-              <h2 class="trending-text">Declined Rider Order</h2>
-              <div class="trending-progress-outer">
-                <div class="trending-progress-inner bg-order-bounced-progress" style="width: 13%;"></div>
+
+              <div class="performance-footer">
+                <div class="performance-footer-rate">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect y="12" width="12" height="12" rx="2" transform="rotate(-90 0 12)" fill="#FFF0F1"/>
+                    <path d="M2 7.5L5.75 3.75L9.5 7.5" stroke="#FF8C8C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  +23%
+                </div>
+                <div class="performance-footer-docs">
+                  You have a 23% increase in orders compared to last week
+                </div>
               </div>
-              <h2 class="trending-progress-percentage trending-text">13%</h2>
             </div>
           </div>
-
         </div>
     </div>
 </div>

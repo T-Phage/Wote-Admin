@@ -6,12 +6,16 @@ import { CONSUMERS_DATA } from '../../assets/datatables/consumers.datatables'
 @Component({
   selector: 'app-consumers',
   templateUrl: './consumers.component.html',
-  styleUrls: ['./consumers.component.css']
+  styleUrls: [
+    './consumers.component.css',
+    '../../assets/css/tables.css',
+  ]
 })
 export class ConsumersComponent implements OnInit {
 
   title = "Consumers";
   public showDeactivateModal:boolean = false;
+  public showMenuBg:boolean = false;
 
   displayedColumns: string[] = ['name', 'phone', 'email', 'location', 'symbol'];
   dataSource = new MatTableDataSource(CONSUMERS_DATA);
@@ -30,7 +34,7 @@ export class ConsumersComponent implements OnInit {
   }
 
    // Close opened menu when any part of consumer component is clicked
-   closeOnScreenClicked() {
+  closeOnScreenClicked() {
     // var menuElementsLen = (document.getElementsByClassName('menu') as HTMLCollection).length
     var menuElements = document.querySelector('.viewed') as HTMLDivElement
     menuElements.classList.remove('viewed')
@@ -53,9 +57,18 @@ export class ConsumersComponent implements OnInit {
       menuElementItem.classList.remove('viewed')
     }
 
+    this.showMenuBg = !this.showMenuBg
+
     var ele = ((e as HTMLElement).children[0]) as HTMLElement
     ele.style.visibility = 'visible';
     ele.classList.add('viewed')
+  }
+
+  hideMenu(){
+    this.showMenuBg = !this.showMenuBg;
+    var menu = document.querySelector('.viewed') as HTMLDivElement
+    menu.classList.remove('viewed');
+    menu.style.visibility = 'hidden';
   }
 
   ngOnInit(): void {

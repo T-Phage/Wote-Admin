@@ -65,7 +65,9 @@
     <mat-paginator class="tbl-pagination" [pageSizeOptions]="[10]" aria-label="Consumers on a page"></mat-paginator>
   </div>
 </div>
-
+<!--  -->
+<div *ngIf="showMenuBg" (click)="hideMenu()"class="menu-bg"></div>
+<!--  -->
 <div *ngIf="showDeactivateModal" class="mdl-approve-partner">
   <div class="mdl-approve-partner-content" id="mdl-approve-partner-content">
     <div class="mdl-approve-partner-content-body">

@@ -15,6 +15,7 @@ export class RidersComponent implements OnInit {
 
   title = "Riders"
   public showDeactivateModal = false;
+  public showMenuBg:boolean = false;
 
   constructor() { }
 
@@ -42,9 +43,18 @@ export class RidersComponent implements OnInit {
       menuElementItem.classList.remove('viewed')
     }
 
+    this.showMenuBg = !this.showMenuBg
+
     var ele = ((e as HTMLElement).children[0]) as HTMLElement
     ele.style.visibility = 'visible';
     ele.classList.add('viewed')
+  }
+
+  hideMenu(){
+    this.showMenuBg = !this.showMenuBg;
+    var menu = document.querySelector('.viewed') as HTMLDivElement
+    menu.classList.remove('viewed');
+    menu.style.visibility = 'hidden';
   }
 
   ngOnInit(): void {

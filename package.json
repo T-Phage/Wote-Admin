@@ -23,7 +23,9 @@
     "@coreui/coreui": "^4.2.2",
     "@coreui/icons-angular": "^4.2.4",
     "bootstrap": "^5.2.2",
+    "chart.js": "^4.0.1",
     "mdb-angular-ui-kit": "^3.0.0",
+    "ngx-skeleton-loader": "^6.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
