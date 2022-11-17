@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 
@@ -10,14 +10,26 @@ import {MatPaginator} from '@angular/material/paginator';
     '../../static/css/tables.css',
   ]
 })
+
 export class PartnersComponent implements OnInit {
 
   title = "Partners"
+
+  PARTNERS_ELEMENT: PartnersElements[] = [
+    // {DocID: '', Location: ' ', EstablishmentName:'', NumberOfEstablishment: 0, FirstName: 'God', LastName: 'Kwesi Brempong', PhoneNumber: '054569797656', Email: 'kofi1@gmail.com', Ratings: 0, City: 'Accra', TypeOfEstablishment: 'Shop'},
+    // {DocID: '', Location: ' ', EstablishmentName:'', NumberOfEstablishment: 0, FirstName: 'God', LastName: 'Kwesi Brempong', PhoneNumber: '054569797656', Email: 'kofi1@gmail.com', Ratings: 1, City: 'Accra', TypeOfEstablishment: 'Shop'},
+  ]
+  displayedColumns: any;
+  dataSource: any;
   public showApproveModal:boolean = false;
   public showDeactivateModal:boolean = false;
   public showMenuBg:boolean = false;
+  public dataIsLoading:boolean = true;
 
-  token = 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjU0YmIyMTY1LTcxZTEtNDFhNi1hZjNlLTdkYTRhMGUxZTJjMSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJXb3RlIERlbGl2ZXIiLCJzdWIiOiJhMTBkNTU3NS1mNzRjLTRmYjgtOGUyMC01YjkxYTQwMTlkMjkiLCJleHAiOjE2NzEwOTgzMDcsImlhdCI6MTY2ODUwNjMwNywicm9sZXMiOlsiVVNFUiIsIkFETUlOIl19.BCK3lzcLadmb0SMkdpL5YRjY5rH1qnq3iL8kzXr7KwauNzYE0ZoQg24k7mlMWjOnmP6CqFNbKwvDEpalVzecxYFy_rDaNyirq2Pqz__qr0a9_7k-BKa3No2X11I9zGKrjFa7cPQnbdsp0M-ymHNJdzhuQnyv9Uc_3Ui18Ffl5lteLZZvdWMhi__N9HQXciu9Se2nBQvsCXC9Huc7Ic3Z8t30IkCqQHBq_7mjgPN_NyTb0bEPXxIpRy7WrHNmThwmYXcAmooj-a_dfrunku9rKzWEgYTxL9V0Xi_ZZOQHyeeeBfJt5fNQn_YFvBV9F4SSAwiMArySetB1xOol-Jb6Nw'
+  partnersList:any;
+
+  // token = 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjU0YmIyMTY1LTcxZTEtNDFhNi1hZjNlLTdkYTRhMGUxZTJjMSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJXb3RlIERlbGl2ZXIiLCJzdWIiOiJhMTBkNTU3NS1mNzRjLTRmYjgtOGUyMC01YjkxYTQwMTlkMjkiLCJleHAiOjE2NzEwOTgzMDcsImlhdCI6MTY2ODUwNjMwNywicm9sZXMiOlsiVVNFUiIsIkFETUlOIl19.BCK3lzcLadmb0SMkdpL5YRjY5rH1qnq3iL8kzXr7KwauNzYE0ZoQg24k7mlMWjOnmP6CqFNbKwvDEpalVzecxYFy_rDaNyirq2Pqz__qr0a9_7k-BKa3No2X11I9zGKrjFa7cPQnbdsp0M-ymHNJdzhuQnyv9Uc_3Ui18Ffl5lteLZZvdWMhi__N9HQXciu9Se2nBQvsCXC9Huc7Ic3Z8t30IkCqQHBq_7mjgPN_NyTb0bEPXxIpRy7WrHNmThwmYXcAmooj-a_dfrunku9rKzWEgYTxL9V0Xi_ZZOQHyeeeBfJt5fNQn_YFvBV9F4SSAwiMArySetB1xOol-Jb6Nw'
+  token = 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjU0YmIyMTY1LTcxZTEtNDFhNi1hZjNlLTdkYTRhMGUxZTJjMSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJXb3RlIERlbGl2ZXIiLCJzdWIiOiJhMTBkNTU3NS1mNzRjLTRmYjgtOGUyMC01YjkxYTQwMTlkMjkiLCJleHAiOjE2NzEyNzk2MTEsImlhdCI6MTY2ODY4NzYxMSwicm9sZXMiOlsiVVNFUiIsIkFETUlOIl19.XpGypQYMAsMZOK0zVCIFNE3jSg-ppBitS-Wm_eChe0q1tzF5QMu3ooZMxleXX2FydP9CwezW85FPUZo7cbHujveg4ublm9pw_MUW2bzIPsTZHEfuxrZ3G7yzCyP-lOf_3Tc-N_EU-gnef6yVyg2jKyI8ugI3WdpNKsueJe92gJOA6UIm9xr2oiq6DLHPnXxq8HfykMqpakMsHE3B0NpwapLFLr-E6zL8SFJ1rr11ccdR7xHhBzNt-j06gvyDG6TjIvw9dvX-F1m9Drb4ysXi8JdJKdz4I8EiG1Ae7Rhmlbfxrk3Rkrd3wyKOW3acfV5VKDvt7EGugIFA-kjxW6gD6g'
   baseUrl = 'https://staging-wote-deliver-8pv2.encr.app/admin';
 
   async loadParnerFunc () {
@@ -30,22 +42,25 @@ export class PartnersComponent implements OnInit {
         // 'Content-Type': 'application/x-www-form-urlencoded',
         'Content-Type': 'application/json',
         'accept': 'application.json',
-        'Authorization': this.token,
+        'Authorization': 'Bearer ' + this.token,
       },
     })
     const data = await response.json()
-    console.log(data);
 
+    // this.partnersList = await data.data
+    this.PARTNERS_ELEMENT = await data.data
+    this.dataIsLoading = await this.dataIsLoading
+
+    // Table columns with table Data
+    this.displayedColumns = ['EstablishmentName', 'owner', 'Email', 'PhoneNumber', 'TypeOfEstablishment', 'NumberOfEstablishment', 'Ratings', 'City',  'Location', 'button'];
+    this.dataSource = new MatTableDataSource(this.PARTNERS_ELEMENT);
   }
-
-  displayedColumns: string[] = ['name', 'owner', 'phone', 'email', 'country', 'city', 'symbol'];
-  dataSource = new MatTableDataSource(PARTNERS_ELEMENT);
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   toggleApproveModal() {
     this.showApproveModal = !this.showApproveModal;
@@ -82,14 +97,16 @@ export class PartnersComponent implements OnInit {
 
     for(var i=0;i<menuElementsLen;i++){
       var menuElementItem = menuElements[i] as HTMLElement
-      menuElementItem.style.visibility = 'hidden'
+      // menuElementItem.style.visibility = 'hidden'
+      menuElementItem.style.display = 'none';
       menuElementItem.classList.remove('viewed')
     }
 
     this.showMenuBg = !this.showMenuBg;
 
     var ele = ((e as HTMLElement).children[0]) as HTMLElement
-    ele.style.visibility = 'visible';
+    // ele.style.visibility = 'visible';
+    ele.style.display = 'flex'
     ele.classList.add('viewed')
     console.log('item');
     console.log(menuElements);
@@ -99,47 +116,27 @@ export class PartnersComponent implements OnInit {
     this.showMenuBg = !this.showMenuBg;
     var menu = document.querySelector('.viewed') as HTMLDivElement
     menu.classList.remove('viewed');
-    menu.style.visibility = 'hidden';
+    menu.style.display = 'none';
   }
 
   constructor() { }
-  ngOnInit(): void {
+
+  async ngOnInit(): Promise<any> {
+    const data = await this.loadParnerFunc();
     setTimeout(() => this.dataSource.paginator = this.paginator);
-    console.log(this.token);
-    // this.createParnerFunc();
-    this.loadParnerFunc()
   }
-
 }
 
-interface PeriodicElement {
-  name: string;
-  owner: string;
-  phone: string;
-  email: string;
-  country: string;
-  city: string;
-  symbol: string;
+interface PartnersElements {
+  City: string;
+  DocID: string;
+  Email: string;
+  EstablishmentName: string;
+  FirstName: string;
+  LastName: string;
+  Location: any;
+  NumberOfEstablishment: number;
+  PhoneNumber: string;
+  Ratings: number;
+  TypeOfEstablishment: string;
 }
-
-const PARTNERS_ELEMENT: PeriodicElement[] = [
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-  {name: 'God is King Foods', owner: 'Kwesi Brempong', phone: '054569797656', email: 'kofi1@gmail.com', country: 'Ghana', city: 'Accra', symbol: ''},
-];

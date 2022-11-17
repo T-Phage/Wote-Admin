@@ -14,11 +14,43 @@ import {MatPaginator} from '@angular/material/paginator';
 export class ConsumersComponent implements OnInit {
 
   title = "Consumers";
+
+  CUSTOMERS_ELEMENT: CustomersElement[] = []
+  displayedColumns: any;
+  dataSource: any;
   public showDeactivateModal:boolean = false;
   public showMenuBg:boolean = false;
 
-  displayedColumns: string[] = ['name', 'phone', 'email', 'location', 'symbol'];
-  dataSource = new MatTableDataSource(CONSUMERS_DATA);
+  customersList: any;
+
+  token = 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjU0YmIyMTY1LTcxZTEtNDFhNi1hZjNlLTdkYTRhMGUxZTJjMSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJXb3RlIERlbGl2ZXIiLCJzdWIiOiJhMTBkNTU3NS1mNzRjLTRmYjgtOGUyMC01YjkxYTQwMTlkMjkiLCJleHAiOjE2NzEyNzk2MTEsImlhdCI6MTY2ODY4NzYxMSwicm9sZXMiOlsiVVNFUiIsIkFETUlOIl19.XpGypQYMAsMZOK0zVCIFNE3jSg-ppBitS-Wm_eChe0q1tzF5QMu3ooZMxleXX2FydP9CwezW85FPUZo7cbHujveg4ublm9pw_MUW2bzIPsTZHEfuxrZ3G7yzCyP-lOf_3Tc-N_EU-gnef6yVyg2jKyI8ugI3WdpNKsueJe92gJOA6UIm9xr2oiq6DLHPnXxq8HfykMqpakMsHE3B0NpwapLFLr-E6zL8SFJ1rr11ccdR7xHhBzNt-j06gvyDG6TjIvw9dvX-F1m9Drb4ysXi8JdJKdz4I8EiG1Ae7Rhmlbfxrk3Rkrd3wyKOW3acfV5VKDvt7EGugIFA-kjxW6gD6g'
+  baseUrl = 'https://staging-wote-deliver-8pv2.encr.app/admin';
+
+  // load all customers
+  async loadCustomersFunc () {
+    const response = await fetch(this.baseUrl+'/customers', {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'omit',
+      headers: {
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
+        'accept': 'application.json',
+        'Authorization': 'Bearer ' + this.token,
+      },
+    })
+    const data = await response.json()
+    console.log(data);
+
+    this.customersList = await data.data
+    this.CUSTOMERS_ELEMENT = await data.data
+
+    // Table columns with data
+    this.displayedColumns = ['name', 'email', 'phoneNumber', 'location', 'isActive', 'status', 'button']
+    this.dataSource = new MatTableDataSource(this.CUSTOMERS_ELEMENT);
+  }
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   applyFilter(event: Event) {
@@ -38,7 +70,7 @@ export class ConsumersComponent implements OnInit {
     // var menuElementsLen = (document.getElementsByClassName('menu') as HTMLCollection).length
     var menuElements = document.querySelector('.viewed') as HTMLDivElement
     menuElements.classList.remove('viewed')
-    menuElements.style.visibility = 'hidden';
+    menuElements.style.display = 'none';
     console.log(menuElements);
   }
 
@@ -53,14 +85,14 @@ export class ConsumersComponent implements OnInit {
 
     for(var i=0;i<menuElementsLen;i++){
       var menuElementItem = menuElements[i] as HTMLElement
-      menuElementItem.style.visibility = 'hidden'
+      menuElementItem.style.display = 'none';
       menuElementItem.classList.remove('viewed')
     }
 
     this.showMenuBg = !this.showMenuBg
 
     var ele = ((e as HTMLElement).children[0]) as HTMLElement
-    ele.style.visibility = 'visible';
+    ele.style.display = 'flex';
     ele.classList.add('viewed')
   }
 
@@ -71,34 +103,21 @@ export class ConsumersComponent implements OnInit {
     menu.style.visibility = 'hidden';
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<any> {
+    const data = await this.loadCustomersFunc();
+    data
     setTimeout(() => this.dataSource.paginator = this.paginator);
   }
 
 }
-interface PeriodicElement {
-  name: string;
-  phone: string;
-  email: string;
-  location: string;
-  symbol: string;
-}
 
-const CONSUMERS_DATA: PeriodicElement[] = [
-  {phone: '00000000', name: 'Kofi Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
-  {phone: '00000000', name: 'Kofi Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
-  {phone: '00000000', name: 'Kofi Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
-  {phone: '00000000', name: 'Kofi Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
-  {phone: '00000000', name: 'Kofi Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
-  {phone: '00000000', name: 'Kofi Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
-  {phone: '00000000', name: 'Kofi Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
-  {phone: '00000000', name: 'Kofi Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
-  {phone: '00000000', name: 'Emma Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
-  {phone: '00000000', name: 'Emma Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
-  {phone: '00000000', name: 'Emma Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
-  {phone: '00000000', name: 'Emma Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
-  {phone: '00000000', name: 'Emma Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
-  {phone: '00000000', name: 'Emma Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
-  {phone: '00000000', name: 'Emma Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
-  {phone: '00000000', name: 'Emma Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
-];
+interface CustomersElement {
+  docID: string;
+  email: string;
+  firstname: string;
+  lastname: string;
+  isActive: boolean;
+  location: string;
+  phoneNumber: string;
+  status: boolean;
+}

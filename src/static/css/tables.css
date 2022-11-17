@@ -81,6 +81,10 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 
 tr {
   font-weight: 500;
+  position: relative;
+}
+td {
+  position: relative;
 }
 
 .btn-table-symbol {
@@ -122,9 +126,9 @@ tr {
   align-items: center;
   padding: 8px 6px;
   gap: 8px;
-  visibility: hidden;
-  margin-left: -40px;
-  margin-top: -30px;
+  display: none;
+  margin-left: -100px;
+  margin-top: -70px;
   z-index: 1;
 }
 

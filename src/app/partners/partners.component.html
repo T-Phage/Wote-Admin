@@ -15,38 +15,64 @@
     <div class="mat-elevation-z8">
 
       <table mat-table [dataSource]="dataSource">
+        <!-- // City: string;
+        // DocID: string;
+        // Email: string;
+        // EstablishmentName: string;
+        // FirstName: string;
+        // LastName: string;
+        // Location: any;
+        // NumberOfEstablishment: number;
+        // PhoneNumber: string;
+        // Ratings: number;
+        // TypeOfEstablishment: string; -->
 
-        <ng-container matColumnDef="name" sticky>
+        <ng-container matColumnDef="EstablishmentName" sticky>
           <th mat-header-cell *matHeaderCellDef> Business Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.EstablishmentName}} </td>
         </ng-container>
 
         <ng-container matColumnDef="owner">
           <th mat-header-cell *matHeaderCellDef> Business Owner Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.owner}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.FirstName}} {{element.LastName}}</td>
         </ng-container>
 
-        <ng-container matColumnDef="phone">
-          <th mat-header-cell *matHeaderCellDef> Mobile Number </th>
-          <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+        <ng-container matColumnDef="Email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.Email}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="email">
-          <th mat-header-cell *matHeaderCellDef> Email Address </th>
-          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        <ng-container matColumnDef="PhoneNumber">
+          <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+          <td mat-cell *matCellDef="let element"> {{element.PhoneNumber}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="country">
-          <th mat-header-cell *matHeaderCellDef> Country </th>
-          <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+        <ng-container matColumnDef="NumberOfEstablishment">
+          <th mat-header-cell *matHeaderCellDef> No of Establishments </th>
+          <td mat-cell *matCellDef="let element"> {{element.NumberOfEstablishment}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="city">
-          <th mat-header-cell *matHeaderCellDef> City </th>
-          <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+        <ng-container matColumnDef="City">
+          <th mat-header-cell *matHeaderCellDef>City </th>
+          <td mat-cell *matCellDef="let element"> {{element.City}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="symbol">
+        <ng-container matColumnDef="Location">
+          <th mat-header-cell *matHeaderCellDef> Location </th>
+          <td mat-cell *matCellDef="let element"> {{element.Location}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Ratings">
+          <th mat-header-cell *matHeaderCellDef> Ratings </th>
+          <td mat-cell *matCellDef="let element"> {{element.Ratings}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="TypeOfEstablishment">
+          <th mat-header-cell *matHeaderCellDef> Type Of Establishment </th>
+          <td mat-cell *matCellDef="let element"> {{element.TypeOfEstablishment}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="button">
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let element" (click)="zoomIn($event.currentTarget)">
 

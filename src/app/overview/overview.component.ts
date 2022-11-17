@@ -26,67 +26,67 @@ export class OverviewComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => this.dataSource.paginator = this.paginator);
 
-  var myChart = new Chart("myChart", {
-      type: 'bar',
-      data: {
-        datasets: [
-          {
-            type: 'bar',
-            label: 'Total Orders',
-            data: [10, 20, 30, 40, 50, 50, 50],
-            backgroundColor: ["#ffbdc1"],
-            borderRadius: 8,
-          },
-          {
-            type: 'bar',
-            label: 'New Orders',
-            data: [50, 50, 50, 50, 50, 50, 100],
-            backgroundColor: ["#ff000d"],
-            borderRadius: 8,
-          },
-          {
-            type: 'bar',
-            label: 'Declined Orders(Restaurant)',
-            data: [50, 50, 50, 50, 50, 50, 50],
-            backgroundColor: ["#fc555e"],
-            borderRadius: 8,
-          },
-          {
-            type: 'bar',
-            label: 'Declined orders(Riders)',
-            data: [50, 50, 50, 50, 50, 50, 50],
-            backgroundColor: ["#FFEEEF"],
-            borderRadius: 8,
-          },
-        ],
-        labels:['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
-      },
-      options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-              grid: {
-                display: false,
-              },
+    var myChart = new Chart("myChart", {
+        type: 'bar',
+        data: {
+          datasets: [
+            {
+              type: 'bar',
+              label: 'Total Orders',
+              data: [10, 20, 30, 40, 50, 50, 50],
+              backgroundColor: ["#ffbdc1"],
+              borderRadius: 8,
             },
-            x: {
-              grid: {
-                display: false,
-              },
+            {
+              type: 'bar',
+              label: 'New Orders',
+              data: [50, 50, 50, 50, 50, 50, 100],
+              backgroundColor: ["#ff000d"],
+              borderRadius: 8,
             },
-          },
-          plugins: {
-            legend: {
-              display: false,
-              labels: {
-                font: {
-                  family: 'Mulish'
-                }
-              }
+            {
+              type: 'bar',
+              label: 'Declined Orders(Restaurant)',
+              data: [50, 50, 50, 50, 50, 50, 50],
+              backgroundColor: ["#fc555e"],
+              borderRadius: 8,
             },
-          },
+            {
+              type: 'bar',
+              label: 'Declined orders(Riders)',
+              data: [50, 50, 50, 50, 50, 50, 50],
+              backgroundColor: ["#FFEEEF"],
+              borderRadius: 8,
+            },
+          ],
+          labels:['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
         },
-      });
+        options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                grid: {
+                  display: false,
+                },
+              },
+              x: {
+                grid: {
+                  display: false,
+                },
+              },
+            },
+            plugins: {
+              legend: {
+                display: false,
+                labels: {
+                  font: {
+                    family: 'Mulish'
+                  }
+                }
+              },
+            },
+          },
+    });
   }
 }
 
