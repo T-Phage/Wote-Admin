@@ -1,14 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
-import { RIDERS_DATA } from '../../assets/datatables/riders.datatable';
 
 @Component({
   selector: 'app-riders',
   templateUrl: './riders.component.html',
   styleUrls: [
     './riders.component.css',
-    '../../assets/css/tables.css',
+    '../../static/css/tables.css',
   ]
 })
 export class RidersComponent implements OnInit {
@@ -63,3 +62,40 @@ export class RidersComponent implements OnInit {
 
 }
 
+
+interface PeriodicElement {
+  name: string;
+  phone: string;
+  email: string;
+  location: string;
+  symbol: string;
+}
+
+const RIDERS_DATA: PeriodicElement[] = [
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+  {name: 'Kofi Darlinton', phone: '054569797656', email: 'kofi1@gmail.com', location: 'Jonkobri', symbol: ''},
+];

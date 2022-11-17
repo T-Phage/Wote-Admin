@@ -65,6 +65,7 @@ th {
 td {
   font-weight: 200;
   font-size: 16px;
+  background: #FFFFFF;
 }
 
 th.mat-header-cell, td.mat-cell, td.mat-footer-cell {

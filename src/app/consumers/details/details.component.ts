@@ -5,7 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './details.component.html',
   styleUrls: [
     './details.component.css',
-    '../../../assets/css/tables.css',
   ]
 })
 export class DetailsComponent implements OnInit {

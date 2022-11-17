@@ -16,148 +16,12 @@ export class OverviewComponent implements OnInit {
   title = "Overview"
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  chartOptions = {
-	  animationEnabled: true,
-	  title: {
-      text: " "
-	  },
-	  axisX: {
-      labelAngle: 0,
-      interval: 0,
-    },
-    axisY: {
-      title: "",
-      scaleBreaks: {
-        spacing: 4,
-      }
-	  },
-	  axisY2: {
-      title: ""
-	  },
-	  toolTip: {
-      shared: true,
-	  },
-	  legend:{
-		cursor:"pointer",
-		itemclick: function(e: any){
-		  if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-			e.dataSeries.visible = false;
-		  }
-		  else {
-			e.dataSeries.visible = true;
-		  }
-		  e.chart.render();
-		}
-	  },
-	  data: [{
-		type: "column",
-		name: "Orders",
-    color: "#FF000D",
-		legendText: "New Orders",
-		showInLegend: true,
-		dataPoints:[
-		  {label: "Mon", y: 262},
-		  {label: "Tue", y: 211},
-		  {label: "Wed", y: 175},
-		  {label: "Thur", y: 137},
-		  {label: "Fri", y: 115},
-		  {label: "Sat", y: 104},
-		  {label: "Sun", y: 97.8},
-		]
-	  },
-    // white spacing
-    {
-      type: "column",
-      name: "White Space",
-      color: '#FFFFFF',
-      dataPoints:[
-        {label: "Mon", y: 0},
-      ]
-    }, {
-		type: "column",
-		name: "Declined orders(Restaurant)",
-    color: '#FC555E',
-		legendText: "Declined orders(Retaurant)",
-		axisYType: "secondary",
-		showInLegend: true,
-		dataPoints:[
-		  {label: "Mon", y: 11.15},
-		  {label: "Tue", y: 2.5},
-		  {label: "Wed", y: 3.6},
-		  {label: "Thur", y: 4.2},
-		  {label: "Fri", y: 2.6},
-		  {label: "Sat", y: 2.7},
-		  {label: "Sun", y: 3.1},
-		]
-	  },
-    // white space
-    {
-      type: "column",
-      name: "White Space",
-      color: '#FFFF0',
-      axisYType: "secondary",
-      dataPoints:[
-        {label: "Mon", y: 20},
-      ]
-    },
-    {
-      type: "column",
-      name: "Declined orders(Riders)",
-      color: "#FFEEEF",
-      legendText: "Declined Orders(Riders)",
-      axisYType: "secondary",
-      showInLegend: true,
-      dataPoints:[
-        {label: "Mon", y: 11.15},
-        {label: "Tue", y: 2.5},
-        {label: "Wed", y: 3.6},
-        {label: "Thur", y: 4.2},
-        {label: "Fri", y: 2.6},
-        {label: "Sat", y: 2.7},
-        {label: "Sun", y: 3.1},
-      ]
-      },
-      // white space
-      {
-        type: "column",
-        name: "White Space",
-        color: '#FFFFFF',
-        axisYType: "secondary",
-        dataPoints:[
-          {label: "Mon", y: 0},
-        ]
-      },
-      {
-        type: "column",
-        name: "Total orders",
-        color: "#FFBDC1",
-        legendText: "Total orders",
-        axisYType: "secondary",
-        showInLegend: true,
-        dataPoints:[
-          {label: "Mon", y: 11.15},
-          {label: "Tue", y: 2.5},
-          {label: "Wed", y: 3.6},
-          {label: "Thur", y: 4.2},
-          {label: "Fri", y: 2.6},
-          {label: "Sat", y: 2.7},
-          {label: "Sun", y: 3.1},
-        ]
-      },
-      // white space
-      {
-        type: "column",
-        name: "White Space",
-        color: '#FFFFFF',
-        axisYType: "secondary",
-        dataPoints:[
-          {label: "Mon", y: 0},
-        ]
-      },
-    ]
-	}
 
   // constructor(private paginator: MatPaginator) { }
+
+  dailyChartDataFunc(){
+
+  }
 
   ngOnInit(): void {
     setTimeout(() => this.dataSource.paginator = this.paginator);
@@ -195,16 +59,33 @@ export class OverviewComponent implements OnInit {
             borderRadius: 8,
           },
         ],
-        labels: ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
-
+        labels:['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
       },
       options: {
           scales: {
-              y: {
-                  beginAtZero: true
+            y: {
+              beginAtZero: true,
+              grid: {
+                display: false,
+              },
+            },
+            x: {
+              grid: {
+                display: false,
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              display: false,
+              labels: {
+                font: {
+                  family: 'Mulish'
+                }
               }
-          }
-        }
+            },
+          },
+        },
       });
   }
 }

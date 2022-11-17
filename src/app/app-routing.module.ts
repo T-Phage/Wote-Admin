@@ -23,6 +23,7 @@ const routes: Routes = [
   {path: 'consumers/:id', component: ConsumerDetails},
   {path: 'partners', component: PartnersComponent},
   {path: 'partners/:id', component: PartnerDetails},
+  {path: 'partners/edit/:id', component: PartnerDetails},
   {path: 'riders', component: RidersComponent},
   {path: 'riders/:id', component: RiderDetails},
   {path: 'riders/edit/:id', component: RidersEditComponent},

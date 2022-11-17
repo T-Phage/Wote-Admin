@@ -116,7 +116,7 @@
           <div class="mat-elevation-z8">
             <table mat-table [dataSource]="dataSource">
 
-              <ng-container matColumnDef="orderId">
+              <ng-container matColumnDef="orderId" sticky>
                 <th mat-header-cell *matHeaderCellDef> Order ID </th>
                 <td mat-cell *matCellDef="let element"> {{element.orderId}} </td>
               </ng-container>

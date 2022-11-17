@@ -16,7 +16,7 @@
 
       <table mat-table [dataSource]="dataSource">
 
-        <ng-container matColumnDef="name">
+        <ng-container matColumnDef="name" sticky>
           <th mat-header-cell *matHeaderCellDef> Rider's Name </th>
           <td mat-cell *matCellDef="let element">
             {{element.name}}
@@ -97,6 +97,6 @@
     </div>
     <div class="mdl-approve-partner-content-footer">
       <button (click)="toggleDeactivateModal()" class="btnCancel">Cancel</button>
-      <button class="btnDeactivate">Delete</button>
+      <button class="btnDeactivate">Deactivate</button>
   </div>
 </div>

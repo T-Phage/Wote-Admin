@@ -104,15 +104,19 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 tr {
   font-weight: 500;
 }
-
+td {
+  background: #FFFFFF;
+}
 .order-chart {
-  /* background: #FFFFFF; */
   margin: 16px;
-  display: grid;
-  grid-template-columns: 8fr 2.2fr;
-  gap: 14px;
+  display: flex;
   justify-content: space-between;
   width: 100%;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.order-chart > * {
+  flex: 1 auto;
 }
 .chart {
   background: #FFFFFF;
@@ -125,7 +129,6 @@ tr {
   justify-content: space-between;
 }
 .chart-filter {
-  /* height: 49.57px; */
   background: #F8F8FF;
   border-radius: 14.7687px;
 }
@@ -139,7 +142,6 @@ tr {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  /* line-height: 16px; */
   text-align: center;
   color: #9291A5;
 }
@@ -188,7 +190,6 @@ tr {
   background: #F8F8FF;
   border: 1px solid #FFBDC0;
   border-radius: 10px;
-
   /* font */
   font-family: 'Mulish';
   font-style: normal;
@@ -330,4 +331,14 @@ tr {
 
 .chart-diagram {
   padding: 12px;
+
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #615E83;
 }

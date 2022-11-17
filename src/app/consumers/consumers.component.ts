@@ -1,16 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
-import { CONSUMERS_DATA } from '../../assets/datatables/consumers.datatables'
 
 @Component({
   selector: 'app-consumers',
   templateUrl: './consumers.component.html',
   styleUrls: [
     './consumers.component.css',
-    '../../assets/css/tables.css',
+    '../../static/css/tables.css',
   ]
 })
+
 export class ConsumersComponent implements OnInit {
 
   title = "Consumers";
@@ -76,3 +76,29 @@ export class ConsumersComponent implements OnInit {
   }
 
 }
+interface PeriodicElement {
+  name: string;
+  phone: string;
+  email: string;
+  location: string;
+  symbol: string;
+}
+
+const CONSUMERS_DATA: PeriodicElement[] = [
+  {phone: '00000000', name: 'Kofi Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
+  {phone: '00000000', name: 'Kofi Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
+  {phone: '00000000', name: 'Kofi Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
+  {phone: '00000000', name: 'Kofi Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
+  {phone: '00000000', name: 'Kofi Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
+  {phone: '00000000', name: 'Kofi Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
+  {phone: '00000000', name: 'Kofi Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
+  {phone: '00000000', name: 'Kofi Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
+  {phone: '00000000', name: 'Emma Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
+  {phone: '00000000', name: 'Emma Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
+  {phone: '00000000', name: 'Emma Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
+  {phone: '00000000', name: 'Emma Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
+  {phone: '00000000', name: 'Emma Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
+  {phone: '00000000', name: 'Emma Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
+  {phone: '00000000', name: 'Emma Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
+  {phone: '00000000', name: 'Emma Darlington', email: 'mail@mail.com', location: 'jonkobri ST', symbol:''},
+];

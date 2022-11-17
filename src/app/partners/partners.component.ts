@@ -7,7 +7,7 @@ import {MatPaginator} from '@angular/material/paginator';
   templateUrl: './partners.component.html',
   styleUrls: [
     './partners.component.css',
-    '../../assets/css/tables.css',
+    '../../static/css/tables.css',
   ]
 })
 export class PartnersComponent implements OnInit {
@@ -20,27 +20,22 @@ export class PartnersComponent implements OnInit {
   token = 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjU0YmIyMTY1LTcxZTEtNDFhNi1hZjNlLTdkYTRhMGUxZTJjMSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJXb3RlIERlbGl2ZXIiLCJzdWIiOiJhMTBkNTU3NS1mNzRjLTRmYjgtOGUyMC01YjkxYTQwMTlkMjkiLCJleHAiOjE2NzEwOTgzMDcsImlhdCI6MTY2ODUwNjMwNywicm9sZXMiOlsiVVNFUiIsIkFETUlOIl19.BCK3lzcLadmb0SMkdpL5YRjY5rH1qnq3iL8kzXr7KwauNzYE0ZoQg24k7mlMWjOnmP6CqFNbKwvDEpalVzecxYFy_rDaNyirq2Pqz__qr0a9_7k-BKa3No2X11I9zGKrjFa7cPQnbdsp0M-ymHNJdzhuQnyv9Uc_3Ui18Ffl5lteLZZvdWMhi__N9HQXciu9Se2nBQvsCXC9Huc7Ic3Z8t30IkCqQHBq_7mjgPN_NyTb0bEPXxIpRy7WrHNmThwmYXcAmooj-a_dfrunku9rKzWEgYTxL9V0Xi_ZZOQHyeeeBfJt5fNQn_YFvBV9F4SSAwiMArySetB1xOol-Jb6Nw'
   baseUrl = 'https://staging-wote-deliver-8pv2.encr.app/admin';
 
+  async loadParnerFunc () {
+    const response = await fetch(this.baseUrl+'/tenants', {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'omit',
+      headers: {
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
+        'accept': 'application.json',
+        'Authorization': this.token,
+      },
+    })
+    const data = await response.json()
+    console.log(data);
 
-  createParnerFunc () {
-    var xhr = new XMLHttpRequest();
-    xhr.setRequestHeader('Authorization', this.token)
-    xhr.open('POST', this.baseUrl + '/partner')
-    // xhr.onload = function(){
-    //   if (xhr.status != 200) {
-    //     console.log("Error")
-    //     return
-    //   }
-    // }
-    xhr.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-         // Typical action to be performed when the document is ready:
-         console.log(xhr.responseText);
-      }
-    };
-    xhr.onerror = function(){
-      console.log('request failed');
-    }
-    xhr.send();
   }
 
   displayedColumns: string[] = ['name', 'owner', 'phone', 'email', 'country', 'city', 'symbol'];
@@ -112,7 +107,7 @@ export class PartnersComponent implements OnInit {
     setTimeout(() => this.dataSource.paginator = this.paginator);
     console.log(this.token);
     // this.createParnerFunc();
-
+    this.loadParnerFunc()
   }
 
 }

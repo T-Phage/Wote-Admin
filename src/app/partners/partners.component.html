@@ -16,7 +16,7 @@
 
       <table mat-table [dataSource]="dataSource">
 
-        <ng-container matColumnDef="name">
+        <ng-container matColumnDef="name" sticky>
           <th mat-header-cell *matHeaderCellDef> Business Name </th>
           <td mat-cell *matCellDef="let element"> {{element.name}} </td>
         </ng-container>
@@ -51,7 +51,7 @@
           <td mat-cell *matCellDef="let element" (click)="zoomIn($event.currentTarget)">
 
             <div class="menu">
-              <button class="menu-item" mat-button>Edit</button>
+              <button class="menu-item" mat-button routerLink="/partners/edit/1">Edit</button>
               <button class="menu-item" mat-button (click)="toggleDeactivateModal()">Deactivate</button>
               <button class="menu-item" mat-button routerLink="/partners/1">Veiw Details</button>
               <button class="menu-item" mat-button (click)="toggleApproveModal()">Approve</button>
@@ -132,7 +132,7 @@
    </div>
 
 <!-- Success Modal -->
-   <div class="mdl-patner-confirmed">
+  <div class="mdl-patner-confirmed">
     <i>
       <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="4" width="48" height="48" rx="24" fill="#D1FADF"/>
@@ -141,7 +141,7 @@
       </svg>
     </i>
     <h1>Partner Approved</h1>
-   </div>
+  </div>
 </div>
 
 <!-- Deactivate  -->
