@@ -15,6 +15,8 @@ export class PartnersComponent implements OnInit {
 
   title = "Partners"
 
+  tableErrorMsg: string = "No data found...";
+
   PARTNERS_ELEMENT: PartnersElements[] = [
     // {DocID: '', Location: ' ', EstablishmentName:'', NumberOfEstablishment: 0, FirstName: 'God', LastName: 'Kwesi Brempong', PhoneNumber: '054569797656', Email: 'kofi1@gmail.com', Ratings: 0, City: 'Accra', TypeOfEstablishment: 'Shop'},
     // {DocID: '', Location: ' ', EstablishmentName:'', NumberOfEstablishment: 0, FirstName: 'God', LastName: 'Kwesi Brempong', PhoneNumber: '054569797656', Email: 'kofi1@gmail.com', Ratings: 1, City: 'Accra', TypeOfEstablishment: 'Shop'},
@@ -33,27 +35,34 @@ export class PartnersComponent implements OnInit {
   baseUrl = 'https://staging-wote-deliver-8pv2.encr.app/admin';
 
   async loadParnerFunc () {
-    const response = await fetch(this.baseUrl+'/tenants', {
-      method: 'GET',
-      mode: 'cors',
-      cache: 'no-cache',
-      credentials: 'omit',
-      headers: {
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-        'Content-Type': 'application/json',
-        'accept': 'application.json',
-        'Authorization': 'Bearer ' + this.token,
-      },
-    })
-    const data = await response.json()
+    try {
+      const response = await fetch(this.baseUrl+'/tenants', {
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'omit',
+        headers: {
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
+          'accept': 'application.json',
+          'Authorization': 'Bearer ' + this.token,
+        },
+      })
+      const data = await response.json()
 
-    // this.partnersList = await data.data
-    this.PARTNERS_ELEMENT = await data.data
-    this.dataIsLoading = await this.dataIsLoading
+      // this.partnersList = await data.data
+      this.PARTNERS_ELEMENT = await data.data
+      this.dataIsLoading = await this.dataIsLoading
 
-    // Table columns with table Data
-    this.displayedColumns = ['EstablishmentName', 'owner', 'Email', 'PhoneNumber', 'TypeOfEstablishment', 'NumberOfEstablishment', 'Ratings', 'City',  'Location', 'button'];
-    this.dataSource = new MatTableDataSource(this.PARTNERS_ELEMENT);
+      // Table columns with table Data
+      this.displayedColumns = ['EstablishmentName', 'owner', 'Email', 'PhoneNumber', 'TypeOfEstablishment', 'NumberOfEstablishment', 'Ratings', 'City',  'Location', 'button'];
+      this.dataSource = new MatTableDataSource(this.PARTNERS_ELEMENT);
+    } catch (e) {
+      // Table columns with table Data
+      this.displayedColumns = ['EstablishmentName', 'owner', 'Email', 'PhoneNumber', 'TypeOfEstablishment', 'NumberOfEstablishment', 'Ratings', 'City',  'Location', 'button'];
+      this.dataSource = new MatTableDataSource(this.PARTNERS_ELEMENT);
+      this.tableErrorMsg = "An error may have occured check your internet connectivity and refresh page";
+    }
   }
 
   applyFilter(event: Event) {

@@ -62,6 +62,11 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 
 tr {
   font-weight: 500;
+  position: relative;
+}
+
+td{
+  position: relative;
 }
 
 .btn-table-symbol {
@@ -81,7 +86,7 @@ tr {
   border-radius: 6px;
 }
 
-.menu {
+/* .menu {
   position: absolute;
   width: 104px;
   background: #FFFFFF;
@@ -97,9 +102,9 @@ tr {
   visibility: hidden;
   margin-left: -40px;
   margin-top: -30px;
-}
+} */
 
-.menu-item{
+/* .menu-item{
   background: transparent;
   border-width: 0px;
   font-family: 'Inter';
@@ -110,11 +115,11 @@ tr {
   letter-spacing: 0.02em;
   color: #464F60;
   cursor: pointer;
-}
-
+} */
+/*
 .menu-item:hover {
     background: #464F60;
     color:#FFFFFF;
     transition: 0.7s;
 }
-
+ */

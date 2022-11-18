@@ -38,14 +38,14 @@ export class RidersComponent implements OnInit {
 
     for(var i=0;i<menuElementsLen;i++){
       var menuElementItem = menuElements[i] as HTMLElement
-      menuElementItem.style.visibility = 'hidden'
+      menuElementItem.style.display = 'none'
       menuElementItem.classList.remove('viewed')
     }
 
     this.showMenuBg = !this.showMenuBg
 
     var ele = ((e as HTMLElement).children[0]) as HTMLElement
-    ele.style.visibility = 'visible';
+    ele.style.display = 'flex';
     ele.classList.add('viewed')
   }
 
@@ -53,7 +53,7 @@ export class RidersComponent implements OnInit {
     this.showMenuBg = !this.showMenuBg;
     var menu = document.querySelector('.viewed') as HTMLDivElement
     menu.classList.remove('viewed');
-    menu.style.visibility = 'hidden';
+    menu.style.display = 'none';
   }
 
   ngOnInit(): void {

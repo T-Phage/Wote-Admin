@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-consumers',
@@ -15,6 +16,8 @@ export class ConsumersComponent implements OnInit {
 
   title = "Consumers";
 
+  tableErrorMsg: string = "No data found...";
+
   CUSTOMERS_ELEMENT: CustomersElement[] = []
   displayedColumns: any;
   dataSource: any;
@@ -28,27 +31,36 @@ export class ConsumersComponent implements OnInit {
 
   // load all customers
   async loadCustomersFunc () {
-    const response = await fetch(this.baseUrl+'/customers', {
-      method: 'GET',
-      mode: 'cors',
-      cache: 'no-cache',
-      credentials: 'omit',
-      headers: {
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-        'Content-Type': 'application/json',
-        'accept': 'application.json',
-        'Authorization': 'Bearer ' + this.token,
-      },
-    })
-    const data = await response.json()
-    console.log(data);
+    try {
+      const response = await fetch(this.baseUrl+'/customers', {
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'omit',
+        headers: {
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
+          'accept': 'application.json',
+          'Authorization': 'Bearer ' + this.token,
+        },
+      })
+      const data = await response.json()
+      console.log(data);
 
-    this.customersList = await data.data
-    this.CUSTOMERS_ELEMENT = await data.data
+      this.customersList = await data.data
+      this.CUSTOMERS_ELEMENT = await data.data
 
-    // Table columns with data
-    this.displayedColumns = ['name', 'email', 'phoneNumber', 'location', 'isActive', 'status', 'button']
-    this.dataSource = new MatTableDataSource(this.CUSTOMERS_ELEMENT);
+      // Table columns with data
+      this.displayedColumns = ['name', 'email', 'phoneNumber', 'location', 'isActive', 'status', 'button']
+      this.dataSource = new MatTableDataSource(this.CUSTOMERS_ELEMENT);
+    } catch (e){
+      // Table columns with data
+      this.displayedColumns = ['name', 'email', 'phoneNumber', 'location', 'isActive', 'status', 'button']
+      this.dataSource = new MatTableDataSource(this.CUSTOMERS_ELEMENT);
+      this.tableErrorMsg = "An error may have occured check your internet connectivity and refresh page";
+      console.log('error', e);
+      console.log(this.CUSTOMERS_ELEMENT.length);
+    }
   }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -58,7 +70,7 @@ export class ConsumersComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   openDeactivateDialog() {
     console.log('clicked');
@@ -107,6 +119,7 @@ export class ConsumersComponent implements OnInit {
     const data = await this.loadCustomersFunc();
     data
     setTimeout(() => this.dataSource.paginator = this.paginator);
+    console.log(this.tableErrorMsg);
   }
 
 }
